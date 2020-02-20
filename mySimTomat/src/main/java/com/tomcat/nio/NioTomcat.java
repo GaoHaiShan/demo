@@ -70,7 +70,6 @@ public class NioTomcat {
             serverSocketChannel.configureBlocking(false);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
             listen();
-            System.out.println("返回1");
         } catch (IOException e) {
             e.printStackTrace();
         }
