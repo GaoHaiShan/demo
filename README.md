@@ -1,17 +1,17 @@
 demo 简介  
-	mySimTomat 项目   
-		netty 实现简单 tomcat demo  
-		nio 实现简单 tomcat demo  
-		（直接启动访问 127.0.0.1:8080/first.do 或者 127.0.0.1:8080/seco.do即可）  
-	其余三个文件是实现分布式远程调用 demo  
-		netty-rpc-client（客户端）    register(注册中心)  rpc-netty-service（服务端）  
-		部署：  
-			模块 netty-rpc-client（客户端）    register(注册中心)  rpc-netty-service（服务端）  
-			将 rpc-netty-service 里 api模块打成 jar 包 并且引入 netty-rpc-client 和 register中 即可完成部署  
-		启动顺序  
-			先启动 register  
-			在启动 rpc-netty-service  
-			最后启动 netty-rpc-client  
+ mySimTomat 项目   
+      netty 实现简单 tomcat demo  
+      nio 实现简单 tomcat demo  
+    （直接启动访问 127.0.0.1:8080/first.do 或者 127.0.0.1:8080/seco.do即可）  
+ 其余三个文件是实现分布式远程调用 demo  
+      netty-rpc-client（客户端）    register(注册中心)  rpc-netty-service（服务端）  
+      部署：  
+          模块 netty-rpc-client（客户端）    register(注册中心)  rpc-netty-service（服务端）  
+          将 rpc-netty-service 里 api模块打成 jar 包 并且引入 netty-rpc-client 和 register中 即可完成部署  
+       启动顺序  
+          先启动 register  
+          在启动 rpc-netty-service  
+          最后启动 netty-rpc-client  
 
 学习内容  
 tomcat 简单流程  
@@ -28,13 +28,13 @@ nio 通信使用
 2、byteBuffer 数据缓存区  
 3、serverSocketChannel 通信管道  
 4、selectionKey 某个客户端的通信管道  
-	处理流程  
-		1、初始化 selector = Selector.open() byteBuffer = ByteBuffer.allocate() serverSocketChannel=ServerSocketChannel.open()  
-		2、绑定端口号 关闭 bio 模式（nio 默认开启 bio 模式）  
-		3、将 selector 注册进入 serverSocketChannel （参数 SelectionKey.OP_ACCEPT)  
-		4、selector.select() 返回已就绪的通信管道  
-		5、获取所有的客户通管道  
-		6、遍历客户通管道 判断某个客户端的数据是否已准备就绪（isAcceptable） 是否可读（isReadable 是否可写（isWritable）  
+    处理流程  
+       1、初始化 selector = Selector.open() byteBuffer = ByteBuffer.allocate() serverSocketChannel=ServerSocketChannel.open()  
+       2、绑定端口号 关闭 bio 模式（nio 默认开启 bio 模式）  
+       3、将 selector 注册进入 serverSocketChannel （参数 SelectionKey.OP_ACCEPT)  
+       4、selector.select() 返回已就绪的通信管道  
+       5、获取所有的客户通管道  
+       6、遍历客户通管道 判断某个客户端的数据是否已准备就绪（isAcceptable） 是否可读（isReadable 是否可写（isWritable）  
 5、缓存区  
 	普通缓存区  
 		byteBuffer  
