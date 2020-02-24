@@ -1,5 +1,7 @@
 package nofactory;
 
+import model.*;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,17 +20,17 @@ public class Test {
     }
     private static void doPay(String payName) throws IllegalAccessException {
         if("微信".equals(payName)){
-            WxPay wxPay = new WxPay();
-            System.out.println("请求微信接口，发送数据包 ："+objToMap(wxPay).toString());
+            IPay pay = new WxPay();
+            pay.send(objToMap(pay));
         }else if("支付宝".equals(payName)){
-            AliPay aliPay = new AliPay();
-            System.out.println("请求支付宝接口，发送数据包 ："+objToMap(aliPay).toString());
+            IPay pay = new AliPay();
+            pay.send(objToMap(pay));
         }else if("银联".equals(payName)){
-            YinLianPay yinLianPay = new YinLianPay();
-            System.out.println("请求银联接口，发送数据包 ："+objToMap(yinLianPay).toString());
+            IPay pay = new YinLianPay();
+            pay.send(objToMap(pay));
         }else if("跨境".equals(payName)) {
-            PayPal payPal = new PayPal();
-            System.out.println("请求跨境接口，发送数据包 ："+objToMap(payPal).toString());
+            IPay pay = new PayPal();
+            pay.send(objToMap(pay));
         }else {
             System.out.println("未找到支付方式");
         }

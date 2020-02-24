@@ -1,9 +1,8 @@
-package nofactory;
+package model;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
 
-public class PayPal {
+public class PayPal implements IPay {
 
     private String id="";
     private String purchaseUnitReferenceId="";
@@ -121,5 +120,11 @@ public class PayPal {
 
     public void setLinks(String links) {
         this.links = links;
+    }
+
+    @Override
+    public void send(Map map) {
+
+        System.out.println("请求跨境接口，发送数据包 ："+map.toString());
     }
 }

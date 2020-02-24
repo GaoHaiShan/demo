@@ -1,6 +1,8 @@
-package nofactory;
+package model;
 
-public class YinLianPay {
+import java.util.Map;
+
+public class YinLianPay implements IPay{
     private String version="";            //版本号 全渠道默认值
     private String encoding="";     //字符集编码 可以使用UTF-8,GBK两种方式
     private String signMethod="";                    //签名方法 目前只支持01：RSA方式证书加密
@@ -135,5 +137,10 @@ public class YinLianPay {
 
     public void setBackUrl(String backUrl) {
         this.backUrl = backUrl;
+    }
+
+    @Override
+    public void send(Map map) {
+        System.out.println("请求银联接口，发送数据包 ："+map.toString());
     }
 }

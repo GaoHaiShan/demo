@@ -1,6 +1,8 @@
-package nofactory;
+package model;
 
-public class WxPay {
+import java.util.Map;
+
+public class WxPay implements IPay{
     private String appid="";
     //商品名称
     private String body="";
@@ -109,5 +111,10 @@ public class WxPay {
 
     public void setSign(String sign) {
         this.sign = sign;
+    }
+
+    @Override
+    public void send(Map map) {
+        System.out.println("请求微信接口，发送数据包 ："+map.toString());
     }
 }

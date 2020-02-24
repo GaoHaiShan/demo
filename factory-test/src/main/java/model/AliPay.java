@@ -1,9 +1,8 @@
-package nofactory;
+package model;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class AliPay {
+public class AliPay implements IPay {
 
     private String service = "";
     private String partner = "";
@@ -121,5 +120,10 @@ public class AliPay {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    @Override
+    public void send(Map map) {
+        System.out.println("请求支付宝接口，发送数据包 ："+map.toString());
     }
 }
