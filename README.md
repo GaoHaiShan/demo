@@ -56,7 +56,7 @@ nio 通信使用
 	init	初始化       position：0 limit:数组长度 capacity:数组长度  
 	read	读入数据     position:有效长度 limit:数组长度 capacity:数组长度  
 	filp	锁定数据     position:0 limit:有效长度 capacity:数组长度  
-	get	    读取数据完毕 position:有效长度 limit:有效长度 capacity:数组长度（每次迭代 position + 1）  
+	get	读取数据完毕 position:有效长度 limit:有效长度 capacity:数组长度（每次迭代 position + 1）  
 	clear	清空缓存区   position：0 limit:数组长度 capacity:数组长度  
 7、特殊缓存区  
 	DirectByteBuffer 零拷贝缓存区  
